@@ -1,0 +1,19 @@
+@(pageTitle: String, jsFilesForPage: String*)(html: Html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>@pageTitle</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+	<h1>@pageTitle</h1>
+	<section>
+		@html
+	</section>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	@jsFilesForPage.map { file =>
+		<script type="text/javascript" src="@routes.Assets.at(s"javascripts/${file}.js")"></script>
+	}
+</body>
+</html>
