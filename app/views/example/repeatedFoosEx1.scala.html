@@ -1,6 +1,10 @@
 @(form: Form[Seq[Foo]])(implicit messages: Messages)
 
 @views.html.main("Basic Example 1", "uuid", "addRemove", "repeatFoos-ex1") {
+	<p>
+		This is just a basic example of a form. Even with no data, we get a single row by using "min = 1" to the repeat helper.
+		When adding new rows dynamically we update the index in the field name, as well as some cosmetic properties like the label.
+	</p>
 	@helper.form(routes.RepeatedFooController.whatWasPosted) {
 		<div ui="container">
 		@helper.repeat(form("foos"), min = 1) { foo =>

@@ -1,6 +1,12 @@
 @(foos: Seq[Foo])
 
 @views.html.main("No Helpers Example 3", "uuid", "addRemove", "repeatFoos-ex3") {
+	<p>
+		this example shows that trying to use [] with a list of complex objects will fail. The reason this fails is because the key (field name) does not end in [] therefore never triggers the code in binding to automatically generate the indices. Which means that when we collect and filter by the regular expression in the indexes method of RepeatedMapping all the values are filtered out. 
+	</p>
+	<p>
+		Don't think that means a complex object with a nested field that ends in [] will fair any better though. I doubt it.
+	</p>
 	@helper.form(routes.RepeatedFooController.whatWasPosted) {
 		<div ui="container">
 		@if(foos.isEmpty) {

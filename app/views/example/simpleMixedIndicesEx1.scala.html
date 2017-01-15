@@ -1,6 +1,9 @@
 @(form: Form[Seq[String]])(implicit messages: Messages)
 
 @views.html.main("No Helpers, simple field Example", "addRemove", "simpleMixedIndices-ex1") {
+	<p>
+		Mixed field names of [0] and [] won't work because during the folding process while processing values the last sent type of indices will overwrite the other. So you probably don't every want to do this. (Run the code use JS to add in some [] and submit to see what happens)
+	</p>
 	@helper.form(routes.RepeatedSimpleController.whatWasPosted) {
 		<div ui="container">
 		@helper.repeat(form("strings"), min = 1) { simple =>

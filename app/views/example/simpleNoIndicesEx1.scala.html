@@ -1,6 +1,9 @@
 @(strings: Seq[String])
 
 @views.html.main("No Helpers, simple field Example", "addRemove", "simpleNoIndices-ex1") {
+	<p>
+		You can use [] without any numbers if the field you're submitting is a list of one type of simple object, like strings, numbers or some other primitive. As indicated by repeatedFoo example 3, you can't submit nested (case class) objects like this.
+	</p>
 	@helper.form(routes.RepeatedSimpleController.whatWasPosted) {
 		<div ui="container">
 		@if(strings.isEmpty) {

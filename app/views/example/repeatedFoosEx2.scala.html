@@ -1,6 +1,9 @@
 @(form: Form[Seq[Foo]])(implicit messages: Messages)
 
 @views.html.main("Basic Example 2", "uuid", "addRemove", "repeatFoos-ex2") {
+	<p>
+		This example, if you inspect the new rows being added, shows that the number between the [] doesn't matter in a field name as long as its consistent
+	</p>
 	@helper.form(routes.RepeatedFooController.whatWasPosted) {
 		<div ui="container">
 		@helper.repeat(form("foos"), min = 1) { foo =>
