@@ -1,6 +1,6 @@
 @(form: Form[Seq[Foo]])(implicit messages: Messages)
 
-@views.html.main("Basic Example 1", "uuid", "addRemove", "repeatFoos-ex2") {
+@views.html.main("Basic Example 2", "uuid", "addRemove", "repeatFoos-ex2") {
 	<div ui="container">
 	@helper.repeat(form("foos"), min = 1) { foo =>
 		<div ui="row">
