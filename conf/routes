@@ -1,3 +1,5 @@
 GET /assets/*file controllers.Assets.at(path="/public", file)
 
 GET / controllers.MiscController.index
+
+GET /foo/repeated/1 @controllers.RepeatedFooController.example1()
