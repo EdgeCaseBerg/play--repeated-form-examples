@@ -1,21 +1,24 @@
 @(foos: Seq[Foo])
 
 @views.html.main("No Helpers Example 3", "uuid", "addRemove", "repeatFoos-ex3") {
-	<div ui="container">
-	@if(foos.isEmpty) {
-		<div ui="row">
-			<input type="text" readonly value="@models.randomUUID().toString" name="foos[].id"/>
-			<input type="text" name="value">
-			<a ui="remove" href="#">Remove</a>
+	@helper.form(routes.RepeatedFooController.whatWasPosted) {
+		<div ui="container">
+		@if(foos.isEmpty) {
+			<div ui="row">
+				<input type="text" readonly value="@models.randomUUID().toString" name="foos[].id"/>
+				<input type="text" name="foos[].value">
+				<a ui="remove" href="#">Remove</a>
+			</div>
+		}
+		@foos.map { foo =>
+			<div ui="row">
+				<input type="text" readonly value="@{foo.id.toString}" name="foos[].id"/>
+				<input type="text" name="foos[].value" value="@{foo.value}">
+				<a ui="remove" href="#">Remove</a>
+			</div>	
+		}
 		</div>
+		<a ui="add" href="#">Add New Row</a>
+		<button>Submit</button>
 	}
-	@foos.map { foo =>
-		<div ui="row">
-			<input type="text" readonly value="@{foo.id.toString}" name="foos[].id"/>
-			<input type="text" name="foos[].value" value="@{foo.value}">
-			<a ui="remove" href="#">Remove</a>
-		</div>	
-	}
-	</div>
-	<a ui="add" href="#">Add New Row</a>
 }

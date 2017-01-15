@@ -1,18 +1,21 @@
 @(form: Form[Seq[Foo]])(implicit messages: Messages)
 
 @views.html.main("Basic Example 2", "uuid", "addRemove", "repeatFoos-ex2") {
-	<div ui="container">
-	@helper.repeat(form("foos"), min = 1) { foo =>
-		<div ui="row">
-			@if(foo("id").value.isEmpty) {
-				@helper.inputText(foo("id").copy(value = Option(models.randomUUID().toString)), 'readonly -> true)
-			} else {
-				@helper.inputText(foo("id"), 'readonly -> true)
-			}
-			@helper.inputText(foo("value"))
-			<a ui="remove" href="#">Remove</a>
+	@helper.form(routes.RepeatedFooController.whatWasPosted) {
+		<div ui="container">
+		@helper.repeat(form("foos"), min = 1) { foo =>
+			<div ui="row">
+				@if(foo("id").value.isEmpty) {
+					@helper.inputText(foo("id").copy(value = Option(models.randomUUID().toString)), 'readonly -> true)
+				} else {
+					@helper.inputText(foo("id"), 'readonly -> true)
+				}
+				@helper.inputText(foo("value"))
+				<a ui="remove" href="#">Remove</a>
+			</div>
+		}
 		</div>
+		<a ui="add" href="#">Add New Row</a>
+		<button>Submit</button>
 	}
-	</div>
-	<a ui="add" href="#">Add New Row</a>
 }

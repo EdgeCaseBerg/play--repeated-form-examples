@@ -25,4 +25,11 @@ class RepeatedFooController @Inject() (val messagesApi: MessagesApi) extends Con
 		val data = Seq(Foo("My First Foo"), Foo("Another Foo"))
 		Ok(views.html.example.repeatedFoosEx3(data))
 	}
+
+	def whatWasPosted() = Action { implicit req =>
+		RepeatedFoos.newForm().bindFromRequest().fold(
+			badSubmission => BadRequest(badSubmission.errors.mkString),
+			foosPosted => Ok(foosPosted.size + ": " + foosPosted.mkString("<br>"))
+		)
+	}
 }
