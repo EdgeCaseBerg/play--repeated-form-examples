@@ -8,4 +8,5 @@ GET /foo/repeated/3 @controllers.RepeatedFooController.example3()
 POST /foo/repeated @controllers.RepeatedFooController.whatWasPosted()
 
 GET /simple/repeated/1 @controllers.RepeatedSimpleController.example1()
+GET /simple/repeated/2 @controllers.RepeatedSimpleController.example2()
 POST /simple/repeated @controllers.RepeatedSimpleController.whatWasPosted()

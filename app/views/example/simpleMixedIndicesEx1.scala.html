@@ -1,0 +1,16 @@
+@(form: Form[Seq[String]])(implicit messages: Messages)
+
+@views.html.main("No Helpers, simple field Example", "addRemove", "simpleMixedIndices-ex1") {
+	@helper.form(routes.RepeatedSimpleController.whatWasPosted) {
+		<div ui="container">
+		@helper.repeat(form("strings"), min = 1) { simple =>
+			<div ui="row">
+				@helper.inputText(simple)
+				<a ui="remove" href="#">Remove</a>
+			</div>	
+		}
+		</div>
+		<a ui="add" href="#">Add New Row</a>
+		<button>Submit</button>
+	}
+}

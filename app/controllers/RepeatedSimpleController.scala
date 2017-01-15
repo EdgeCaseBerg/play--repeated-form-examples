@@ -13,6 +13,12 @@ class RepeatedSimpleController @Inject() (val messagesApi: MessagesApi) extends 
 		Ok(views.html.example.simpleNoIndicesEx1(data))
 	}
 
+	def example2() = Action {
+		val data = Seq("example")
+		val form = SimpleNoIndices.newForm().fill(data)
+		Ok(views.html.example.simpleMixedIndicesEx1(form))
+	}
+
 	def whatWasPosted() = Action { implicit req =>
 		SimpleNoIndices.newForm().bindFromRequest().fold(
 			badSubmission => BadRequest(badSubmission.errors.mkString),
