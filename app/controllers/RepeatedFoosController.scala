@@ -20,4 +20,9 @@ class RepeatedFooController @Inject() (val messagesApi: MessagesApi) extends Con
 		val form = RepeatedFoos.newForm().fill(data)
 		Ok(views.html.example.repeatedFoosEx2(form))
 	}
+
+	def example3() = Action {
+		val data = Seq(Foo("My First Foo"), Foo("Another Foo"))
+		Ok(views.html.example.repeatedFoosEx3(data))
+	}
 }
