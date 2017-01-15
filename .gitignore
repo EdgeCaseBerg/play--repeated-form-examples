@@ -1,0 +1,40 @@
+*.class
+*.log
+
+# sbt specific
+.cache
+.lib/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.cache-main
+.cache-tests
+
+# IDEs and tools
+.scala_dependencies
+.worksheet
+.idea 
+.java-version
+
+# Other
+**/logs
+**/project/project
+**/project/target
+**/target
+**/tmp
+**/.history
+**/dist
+**/.idea
+**/*.iml
+**/out
+**/.idea_modules
+**/.classpath
+**/.project
+**/RUNNING_PID
+**/.settings
+.DS_Store
+/bin/
+**/.cache-main
+**/.cache-tests
+target/*
