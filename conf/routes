@@ -5,5 +5,7 @@ GET / controllers.MiscController.index
 GET /foo/repeated/1 @controllers.RepeatedFooController.example1()
 GET /foo/repeated/2 @controllers.RepeatedFooController.example2()
 GET /foo/repeated/3 @controllers.RepeatedFooController.example3()
-
 POST /foo/repeated @controllers.RepeatedFooController.whatWasPosted()
+
+GET /simple/repeated/1 @controllers.RepeatedSimpleController.example1()
+POST /simple/repeated @controllers.RepeatedSimpleController.whatWasPosted()

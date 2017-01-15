@@ -1,0 +1,22 @@
+@(strings: Seq[String])
+
+@views.html.main("No Helpers, simple field Example", "addRemove", "simpleNoIndices-ex1") {
+	@helper.form(routes.RepeatedSimpleController.whatWasPosted) {
+		<div ui="container">
+		@if(strings.isEmpty) {
+			<div ui="row">
+				<input type="text" name="strings[]">
+				<a ui="remove" href="#">Remove</a>
+			</div>
+		}
+		@strings.map { string =>
+			<div ui="row">
+				<input type="text" name="strings[]" value="@string">
+				<a ui="remove" href="#">Remove</a>
+			</div>	
+		}
+		</div>
+		<a ui="add" href="#">Add New Row</a>
+		<button>Submit</button>
+	}
+}
